@@ -1,0 +1,173 @@
+/* ===== Option A: Load from Google Fonts (quick) ===== */
+/* Place near the top of your main CSS file or in <head> via <link> */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap');
+
+
+/* ===== Option B: Self-hosted @font-face (example) =====
+   Uncomment and update src paths if you host files yourself.
+   Keep font-display: swap for better perceived performance.
+*/
+/*
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/OpenSans-Light.woff2") format("woff2"),
+       url("/fonts/OpenSans-Light.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/OpenSans-Regular.woff2") format("woff2"),
+       url("/fonts/OpenSans-Regular.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/OpenSans-SemiBold.woff2") format("woff2"),
+       url("/fonts/OpenSans-SemiBold.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/OpenSans-Bold.woff2") format("woff2"),
+       url("/fonts/OpenSans-Bold.woff") format("woff");
+  font-display: swap;
+}
+*/
+
+/* ========== Core variables & reset ========== */
+:root{
+  --font-sans: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --type-scale-ratio: 1.2; /* modular scale base */
+  --base-size: 1rem;       /* 1rem = 16px by default unless overridden */
+  --line-height: 1.55;
+  --heading-line-height: 1.25;
+  --max-content-width: 75ch;
+  --muted: #6b7280;
+  --text-color: #ffffff;
+  --lead-color: #374151;
+}
+
+/* sensible global reset for type */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* keeps rems predictable */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--base-size);
+  line-height: var(--line-height);
+  color: var(--text-color);
+  background: #383838;
+  min-height: 100vh;
+}
+
+
+/* ===== Typographic scale helpers =====
+   Functions implemented as classes for simplicity.
+*/
+.text-xs  { font-size: calc(var(--base-size) / 1.25); }  /* 0.8rem */
+.text-sm  { font-size: calc(var(--base-size) / 1.111); } /* 0.9rem */
+.text-base { font-size: var(--base-size); }             /* 1rem */
+.text-lg  { font-size: calc(var(--base-size) * 1.125); } /* 1.125rem */
+.text-xl  { font-size: calc(var(--base-size) * 1.25); }  /* 1.25rem */
+.text-2xl { font-size: calc(var(--base-size) * 1.5); }   /* 1.5rem */
+.text-3xl { font-size: calc(var(--base-size) * 1.875); } /* 1.875rem */
+.text-4xl { font-size: calc(var(--base-size) * 2.25); }  /* 2.25rem */
+
+/* ===== Headings ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: var(--heading-line-height);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: inherit;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(1.75rem, 2.8vw, 2.5rem); }
+h2 { font-size: clamp(1.4rem, 2.2vw, 1.875rem); }
+h3 { font-size: clamp(1.15rem, 1.6vw, 1.25rem); }
+h4 { font-size: 1rem; }
+h5 { font-size: 0.9rem; }
+h6 { font-size: 0.8rem; }
+
+/* ===== Paragraphs, lead, and small text ===== */
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: var(--text-color);
+}
+
+.lead {
+  font-size: calc(var(--base-size) * 1.125);
+  font-weight: 400;
+  color: var(--lead-color);
+  line-height: 1.6;
+}
+
+small, .muted {
+  font-size: 0.875em;
+  color: var(--muted);
+}
+
+/* ===== Inline elements ===== */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  transition: color .15s ease;
+  font-weight: 600;
+}
+a:hover { opacity: 0.88; }
+
+/* code styling (monospace fallback) */
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  font-size: 0.92em;
+  background: #f8fafc;
+  padding: 0.15em 0.3em;
+  border-radius: 6px;
+}
+
+/* ===== Utilities ===== */
+.text-center { text-align: center; }
+.uppercase   { text-transform: uppercase; letter-spacing: .08em; }
+.capitalize  { text-transform: capitalize; }
+.truncate    { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* weight utilities */
+.font-light  { font-weight: 300; }
+.font-regular{ font-weight: 400; }
+.font-semibold{ font-weight: 600; }
+.font-bold   { font-weight: 700; }
+
+/* responsive tweak: increase base font-size on larger screens */
+@media (min-width: 900px) {
+  :root { --base-size: 1.0625rem; } /* ~17px */
+}
+
+/* accessibility: focus outline */
+:focus {
+  outline: 3px solid rgba(59,130,246,0.25);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

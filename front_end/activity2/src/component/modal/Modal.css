@@ -1,0 +1,126 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: #2d2d2d;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modal-appear 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.modal-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  color: #ff6b3f;
+  background: rgba(255, 107, 63, 0.1);
+}
+
+.modal-body {
+  color: #ffffff;
+}
+
+.book-detail {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+}
+
+.book-detail-image {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.book-detail-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.book-detail-info h1 {
+  margin: 0 0 10px 0;
+  color: #ffffff;
+}
+
+.book-detail-info .author {
+  color: #888;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.book-detail-info .description {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.book-detail-info .category {
+  display: inline-block;
+  background: #ff6b3f;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .book-detail {
+    grid-template-columns: 1fr;
+  }
+  
+  .book-detail-image {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}

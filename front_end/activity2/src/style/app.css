@@ -1,0 +1,6 @@
+.Appcontainer {
+    background-color: #383838;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

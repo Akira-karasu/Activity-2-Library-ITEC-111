@@ -1,0 +1,26 @@
+.input {
+  font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid #979797;
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #ffffff;
+  
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  border-color: #FF6B3F;
+}
+
+.input.error {
+  border-color: #ef4444; /* red */
+  box-shadow: none;
+}
